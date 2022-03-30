@@ -211,6 +211,10 @@ h2 {
 	border-radius: 1em;
 }
 
+.push-right {
+	margin-left: auto
+}
+
 a,
 .link {
 	background: transparent;
@@ -231,7 +235,6 @@ a:focus,
 
 /* 5. Block */
 .card {
-	--gap: 2em;
 	max-width: 450px;
 	overflow: hidden;
 }
