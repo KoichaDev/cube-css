@@ -147,9 +147,15 @@ h2 {
     border: 1px solid;
 }
 
+
 .grid-flow {
     display: grid;
-    gap: 1em;
+    gap: var(--gap, 1em);
+}
+
+.flex-row {
+    display: flex;
+    gap: var(--gap, 1em);
 }
 
 /* 4. Utility */
@@ -198,9 +204,35 @@ h2 {
     font-weight: var(--fw-900);
 }
 
-/* 5. Block */
+.br-1 {
+    border-radius: 0.5em;
+}
 
+.br-2 {
+    border-radius: 1em;
+}
+
+
+/* 5. Block */
 .card {
-	/* Demo purpose only */
-	max-width: 30em;
+    --gap: 2em;
+	max-width: 450px;
+    overflow: hidden;
+}
+
+
+.button {
+	padding: 1em 2em;
+	color: var(--clr-neutral-100);
+	background: transparent;
+	font-weight: var(--fw-700);
+	border: 0;
+	border-radius: 0.5em;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.button:hover,
+.button:focus {
+	background: var(--clr-primary-300);
 }
