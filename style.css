@@ -1,3 +1,14 @@
+/* Table of Content 
+  1. root
+  2. Andy Bell reset CSS
+  4. Global Reset Styling
+  3. Compositions
+  4. Utility
+  5. Block
+*/
+
+
+/* 1. root */
 :root {
 	--clr-neutral-100: hsl(0 0%, 100%);
 	--clr-neutral-200: hsl(225 100%, 98%);
@@ -17,7 +28,8 @@
 	--fs-900: 900;
 }
 
-/* Box sizing rules */
+
+/* 2. Andy Bell reset CSS */
 *,
 *::before,
 *::after {
@@ -54,6 +66,11 @@ body {
 	min-height: 100vh;
 	text-rendering: optimizeSpeed;
 	line-height: 1.5;
+
+    /* For demo purpose only */
+    display: grid;
+    min-height: 100vh;
+    place-items: center;
 }
 
 /* A elements that don't have a class get default styles */
@@ -92,6 +109,7 @@ select {
 	}
 }
 
+/* 4. Global Reset Styling */
 body {
     font-family: 'Red Hat', sans-serif;
     font-size: var(--fs-400);
@@ -108,4 +126,50 @@ h1, h2, h3 {
 h2 {
     font-size: var(--fs-700);
     color: var(--clr-neutral-800);
+}
+
+/* 3. Composition */
+
+/* 4. Utility */
+
+.padding-24 {
+    padding: 1.5em;
+}
+
+.padding-48 {
+    padding: 3em;
+}
+
+.text-neural-800 {
+    color: var(--clr-neutral-800);
+}
+
+.text-neural-400 {
+    color: var(--clr-neutral-400);
+}
+
+.bg-neutral-100 {
+    background-color: var(--clr-neutral-100);
+}
+
+.bg-neutral-200 {
+    background-color: var(--clr-neutral-200);
+}
+
+.text-align-left {
+    text-align: start;
+}
+
+.text-align-center {
+    text-align: center;
+}
+
+.text-align-right {
+    text-align: end;
+}
+
+/* 5. Block */
+
+.card {
+    max-width: 30em;
 }
