@@ -128,7 +128,7 @@ h3 {
 h2 {
 	font-size: var(--fs-700);
 	color: var(--clr-neutral-800);
-    font-weight: var(--fw-900);
+	font-weight: var(--fw-900);
 }
 
 /* 3. Composition (layout class) */
@@ -143,19 +143,18 @@ h2 {
 
 /* Alternative to write is like this since the solution above can be to abstracted: */
 .flow > :where(:not(:first-child)) {
-    margin-top: var(--flow-spacer, 1em);
-    border: 1px solid;
+	margin-top: var(--flow-spacer, 1em);
+	border: 1px solid;
 }
 
-
 .grid-flow {
-    display: grid;
-    gap: var(--gap, 1em);
+	display: grid;
+	gap: var(--gap, 1em);
 }
 
 .flex-row {
-    display: flex;
-    gap: var(--gap, 1em);
+	display: flex;
+	gap: var(--gap, 1em);
 }
 
 /* 4. Utility */
@@ -197,33 +196,48 @@ h2 {
 }
 
 .fw-bold {
-    font-weight: var(--fw-700);
+	font-weight: var(--fw-700);
 }
 
 .fw-black {
-    font-weight: var(--fw-900);
+	font-weight: var(--fw-900);
 }
 
 .br-1 {
-    border-radius: 0.5em;
+	border-radius: 0.5em;
 }
 
 .br-2 {
-    border-radius: 1em;
+	border-radius: 1em;
 }
 
+a,
+.link {
+	background: transparent;
+	border: 0;
+	color: var(--clr-primary-400);
+	text-decoration: underline;
+	font-weight: var(--fw-700);
+	cursor: pointer;
+}
+
+a:hover,
+a:focus,
+.link:hover,
+.link:focus {
+	color: var(--clr-primary-400);
+	text-decoration: none;
+}
 
 /* 5. Block */
 .card {
-    --gap: 2em;
+	--gap: 2em;
 	max-width: 450px;
-    overflow: hidden;
+	overflow: hidden;
 }
-
 
 .button {
 	padding: 1em 2em;
-	color: var(--clr-neutral-100);
 	background: transparent;
 	font-weight: var(--fw-700);
 	border: 0;
@@ -232,7 +246,21 @@ h2 {
 	cursor: pointer;
 }
 
-.button:hover,
-.button:focus {
+.button[data-type='primary'] {
+	color: var(--clr-neutral-100);
+	background: var(--clr-primary-400);
+}
+
+.button[data-type='primary']:hover,
+.button[data-type='primary']:focus {
 	background: var(--clr-primary-300);
+}
+
+.button[data-type='naked'] {
+	color: var(--clr-neutral-400);
+}
+
+.button[data-type='naked']:hover,
+.button[data-type='naked']:focus {
+	color: var(--clr-neutral-800);
 }
