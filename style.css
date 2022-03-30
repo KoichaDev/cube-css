@@ -1,19 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 /* Table of Content 
   1. root
   2. Andy Bell reset CSS
   4. Global Reset Styling
-  3. Compositions
+  3. Composition (layout class)
   4. Utility
   5. Block
 */
 
-
 /* 1. root */
 :root {
-	--clr-neutral-100: hsl(0 0%, 100%);
-	--clr-neutral-200: hsl(225 100%, 98%);
-	--clr-neutral-400: hsla(223 23%, 55% 1);
-	--clr-neutral-800: hsl(223 47%, 23%);
+	--clr-neutral-100: hsl(0, 0%, 100%);
+	--clr-neutral-200: hsl(225, 100%, 98%);
+	--clr-neutral-400: hsla(223, 23%, 55%, 1);
+	--clr-neutral-800: hsl(223, 47%, 23%);
 
 	--clr-primary-200: hsl(225, 100%, 94%);
 	--clr-primary-300: hsl(245, 83%, 68%, 1);
@@ -27,7 +28,6 @@
 	--fs-700: 700;
 	--fs-900: 900;
 }
-
 
 /* 2. Andy Bell reset CSS */
 *,
@@ -67,10 +67,10 @@ body {
 	text-rendering: optimizeSpeed;
 	line-height: 1.5;
 
-    /* For demo purpose only */
-    display: grid;
-    min-height: 100vh;
-    place-items: center;
+	/* For demo purpose only */
+	display: grid;
+	min-height: 100vh;
+	place-items: center;
 }
 
 /* A elements that don't have a class get default styles */
@@ -111,65 +111,96 @@ select {
 
 /* 4. Global Reset Styling */
 body {
-    font-family: 'Red Hat', sans-serif;
-    font-size: var(--fs-400);
-    font-weight: var(--fw-400);
-    line-height: 1.6;
-    color: var(--clr-neutral-400);
-    background: var(--clr-primary-200);
+	font-family: 'Red Hat Display', sans-serif;
+	font-size: var(--fs-400);
+	font-weight: var(--fw-400);
+	line-height: 1.6;
+	color: var(--clr-neutral-400);
+	background: var(--clr-primary-200);
 }
 
-h1, h2, h3 {
-    line-height: 1.1;
+h1,
+h2,
+h3 {
+	line-height: 1.1;
 }
 
 h2 {
-    font-size: var(--fs-700);
-    color: var(--clr-neutral-800);
+	font-size: var(--fs-700);
+	color: var(--clr-neutral-800);
+    font-weight: var(--fw-900);
 }
 
-/* 3. Composition */
+/* 3. Composition (layout class) */
+
+/* This is selecting every direct child of the flow, except the first child element
+ * Basically if every sibling that has a sibling before 
+*/
+/* .flow > * + * {
+	margin-top: 1em;
+	border: 1px solid;
+} */
+
+/* Alternative to write is like this since the solution above can be to abstracted: */
+.flow > :where(:not(:first-child)) {
+    margin-top: var(--flow-spacer, 1em);
+    border: 1px solid;
+}
+
+.grid-flow {
+    display: grid;
+    gap: 1em;
+}
 
 /* 4. Utility */
 
 .padding-24 {
-    padding: 1.5em;
+	padding: 1.5em;
 }
 
 .padding-48 {
-    padding: 3em;
+	padding: 3em;
 }
 
 .text-neural-800 {
-    color: var(--clr-neutral-800);
+	color: var(--clr-neutral-800);
 }
 
 .text-neural-400 {
-    color: var(--clr-neutral-400);
+	color: var(--clr-neutral-400);
 }
 
 .bg-neutral-100 {
-    background-color: var(--clr-neutral-100);
+	background-color: var(--clr-neutral-100);
 }
 
 .bg-neutral-200 {
-    background-color: var(--clr-neutral-200);
+	background-color: var(--clr-neutral-200);
 }
 
 .text-align-left {
-    text-align: start;
+	text-align: start;
 }
 
 .text-align-center {
-    text-align: center;
+	text-align: center;
 }
 
 .text-align-right {
-    text-align: end;
+	text-align: end;
+}
+
+.fw-bold {
+    font-weight: var(--fw-700);
+}
+
+.fw-black {
+    font-weight: var(--fw-900);
 }
 
 /* 5. Block */
 
 .card {
-    max-width: 30em;
+	/* Demo purpose only */
+	max-width: 30em;
 }
